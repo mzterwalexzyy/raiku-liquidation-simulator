@@ -77,7 +77,7 @@ button, input {
     display: block; 
 }
 
-/* --- Connect Wallet Button Styling (FIXED) --- */
+/* --- Connect Wallet Button Styling --- */
 #connectWalletBtn {
     background-color: #4a90e2; /* Blue color for CONNECT */
     color: white;
@@ -94,9 +94,9 @@ button, input {
     background-color: #6aabff;
 }
 
-/* Disconnect Button (Red) - Applied via JS classList.add('disconnect-btn') */
+/* Disconnect Button (Red) */
 #connectWalletBtn.disconnect-btn {
-    background-color: #d0021b; /* Red color for DISCONNECT */
+    background-color: #d0021b; 
 }
 
 #connectWalletBtn.disconnect-btn:hover {
@@ -311,7 +311,7 @@ button, input {
     padding: 20px;
     border-radius: 10px;
     border: 2px solid #3a3a3a;
-    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Add background-color transition */
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; 
     position: relative;
     overflow: hidden;
 }
@@ -320,7 +320,6 @@ button, input {
     transform: translateY(-3px);
 }
 
-/* FIX: Center the position number title */
 .liq-position-card h3 {
     margin-top: 0;
     font-size: 1.4em;
@@ -369,7 +368,6 @@ button, input {
     box-shadow: 0 0 15px rgba(208, 2, 27, 0.4);
 }
 
-/* FIX: Green border for SAFE positions */
 .liq-position-card.safe {
     border: 2px solid #a6ff00; 
     box-shadow: 0 0 15px rgba(166, 255, 0, 0.4);
@@ -385,9 +383,9 @@ button, input {
     margin-top: 15px;
 }
 
-/* Ensure two columns are defined for the action buttons */
-.action-buttons:has(> .single-action-btn:only-child) {
-    grid-template-columns: 1fr; /* This helps collapse the gap for single buttons */
+/* This helps collapse the gap for single buttons */
+.action-buttons:has(> .safe-btn) {
+     grid-template-columns: 1fr;
 }
 
 
@@ -428,12 +426,6 @@ button, input {
 }
 .aot-button:hover:not(:disabled) {
     background-color: #5d873d;
-}
-
-/* Too Early for Standard JIT (Darker Yellow/Orange Background) */
-.too-early-btn {
-    background-color: #9d7d00; 
-    color: white; 
 }
 
 /* Position is Safe (FINAL, ROBUST FIX: Full Width and Green Hover) */
@@ -497,7 +489,7 @@ button, input {
     text-decoration: none;
 }
 
-/* --- Modal Styles (Welcome Screen - FIXED) --- */
+/* --- Modal Styles (Welcome Screen) --- */
 .modal {
     display: none;
     position: fixed;
@@ -584,7 +576,7 @@ button, input {
     background: none;
     border: none;
     font-size: 2em;
-    color: #a6ff00; /* Raiku green color */
+    color: #a6ff00; 
     cursor: pointer;
     padding: 0 15px;
 }
@@ -599,10 +591,10 @@ button, input {
     background-color: #0a0a0a; 
     border-left: 1px solid #2a2a2a;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-    transform: translateX(100%); /* Start off-screen */
+    transform: translateX(100%); 
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
-    padding-top: 60px; /* Space for the header */
+    padding-top: 60px; 
 }
 
 /* State when the menu is active */
@@ -710,10 +702,10 @@ button, input {
 
 /* Class to be applied temporarily on successful action */
 .liq-position-card.flash-success {
-    animation: flashBackgroundGreen 0.7s ease-out forwards; /* 'forwards' keeps final state */
+    animation: flashBackgroundGreen 0.7s ease-out forwards; 
 }
 
 /* Class to be applied temporarily on failed action */
 .liq-position-card.flash-fail {
-    animation: flashBackgroundRed 0.7s ease-out forwards; /* 'forwards' keeps final state */
+    animation: flashBackgroundRed 0.7s ease-out forwards; 
 }
