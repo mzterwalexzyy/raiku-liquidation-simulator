@@ -320,14 +320,12 @@ button, input {
     transform: translateY(-3px);
 }
 
-/* FIX: Center the position number title */
 .liq-position-card h3 {
     margin-top: 0;
     font-size: 1.4em;
     border-bottom: 1px solid #2a2a2a;
     padding-bottom: 10px;
     margin-bottom: 15px;
-    text-align: center; /* <<< THE FIX IS HERE */
 }
 
 .card-stats p {
@@ -386,6 +384,7 @@ button, input {
 }
 
 /* FIX: Force single button to span the full width by redefining the grid layout when only one child exists */
+/* We target the container when it has exactly one child with the single-action-btn class */
 .action-buttons:has(> .single-action-btn:only-child) {
     grid-template-columns: 1fr; /* Change to a single column layout */
 }
