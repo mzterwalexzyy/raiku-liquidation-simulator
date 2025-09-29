@@ -30,6 +30,10 @@
             <div class="nav-brand">
                 <img src="raiku_logo.jpg" alt="Raiku Logo" class="logo"> 
             </div>
+            
+            <button id="menu-toggle" class="menu-toggle">
+                &#9776; </button>
+            
             <div class="nav-links">
                 <a href="#liqpool" class="nav-link active" data-view="liqpool">Live Liquidation Pool</a> 
                 <a href="#dashboard" class="nav-link" data-view="dashboard">Dashboard (Sim Race)</a>
@@ -42,6 +46,16 @@
             </div>
         </div> 
     </nav>
+    
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="close-menu-btn" class="close-menu-btn">&times;</button>
+        <div class="mobile-nav-links">
+            <a href="#liqpool" class="nav-link active" data-view="liqpool">Live Liquidation Pool</a> 
+            <a href="#dashboard" class="nav-link" data-view="dashboard">Dashboard (Sim Race)</a>
+            <a href="#about-footer" class="nav-link" data-view="about">About</a>
+        </div>
+    </div>
+
 
     <div id="app-container" class="centered-container">
         
@@ -49,7 +63,7 @@
             <header class="app-header">
                 <h1 style="color:#a6ff00;">Live Liquidation Pool: Find Your Edge (AoT Scheduling)</h1>
                 <p class="explanation-main">
-                    Use <strong>Standard JIT</strong> for positions already vulnerable (&le; 1.05$), or use <strong>Raiku AoT</strong> to schedule execution for positions that are <strong>at risk</strong> ($1.06$ - $1.20$).
+                    Use <strong>Standard JIT</strong> for positions already vulnerable (&le; 1.05), or use <strong>Raiku AoT</strong> to schedule execution for positions that are <strong>at risk</strong> ($1.06$ - $1.20$).
                 </p>
                 <div id="liqPoolSummary" class="summary-box" style="margin-top:20px; font-size:1.1em;">
                     Connect Wallet to monitor the Live Liquidation Pool.

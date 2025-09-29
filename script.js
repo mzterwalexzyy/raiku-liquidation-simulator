@@ -606,6 +606,36 @@ liquidationQuantityInput.addEventListener('input', () => {
     liquidationQuantityInput.value = value;
     liquidationQuantityDisplay.textContent = value;
 });
+// --- Mobile Menu Toggle Logic (NEW) ---
 
+const menuToggleBtn = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-links .nav-link');
+
+// Function to open the menu
+menuToggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+});
+
+// Function to close the menu
+closeMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+});
+
+// Close the menu when a link is clicked
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // Use existing switchView logic, but also close the menu
+        e.preventDefault();
+        const viewId = link.dataset.view;
+        if (viewId === 'about') {
+            document.getElementById('about-footer').scrollIntoView({ behavior: 'smooth' });
+        } else {
+            switchView(viewId);
+        }
+        mobileMenu.classList.remove('active');
+    });
+});
 // Initial Setup
 runSimulationBtn.disabled = true;

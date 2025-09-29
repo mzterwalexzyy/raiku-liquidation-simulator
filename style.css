@@ -441,3 +441,88 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(166, 255, 0, 0.2);
 }
+/* --- Mobile Menu Styles (Hamburger) --- */
+
+/* Hide the menu toggle button by default (Desktop view) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #a6ff00; /* Raiku green color */
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+/* Style for the off-canvas menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #0a0a0a; 
+    border-left: 1px solid #2a2a2a;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px; /* Space for the header */
+}
+
+/* State when the menu is active */
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.close-menu-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav-links .nav-link {
+    color: #e0e0e0;
+    padding: 15px 0;
+    border-bottom: 1px solid #1a1a1a;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.mobile-nav-links .nav-link:hover,
+.mobile-nav-links .nav-link.active {
+    color: #a6ff00;
+}
+
+
+/* --- Media Queries (Mobile View Logic) --- */
+@media (max-width: 768px) {
+    /* 1. Hide the main desktop links */
+    .nav-content-wrapper .nav-links {
+        display: none;
+    }
+
+    /* 2. Show the hamburger button */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 3. Adjust the wallet section for space */
+    .wallet-section-nav {
+        margin-left: 0;
+    }
+    .safety-note-nav {
+        display: none; /* Hide safety note to save space */
+    }
+}
