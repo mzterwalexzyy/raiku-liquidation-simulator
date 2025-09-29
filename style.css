@@ -311,7 +311,7 @@ button, input {
     padding: 20px;
     border-radius: 10px;
     border: 2px solid #3a3a3a;
-    transition: transform 0.2s, box-shadow 0.2s; /* Add box-shadow transition for animation */
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Add background-color transition */
     position: relative;
     overflow: hidden;
 }
@@ -691,28 +691,29 @@ button, input {
 }
 
 /* ======================================================= */
-/* ====== FLASH FEEDBACK ANIMATION (Final Request) ======= */
+/* ====== FLASH FEEDBACK ANIMATION (Corrected) ======= */
 /* ======================================================= */
 
-/* Define the animation for the flash effect */
-@keyframes flashBorderRed {
-    0% { box-shadow: 0 0 15px rgba(208, 2, 27, 0.4), inset 0 0 0 0 rgba(208, 2, 27, 0.2); border-color: #d0021b; }
-    25% { box-shadow: 0 0 25px #d0021b, inset 0 0 10px #d0021b; border-color: #ff3344; }
-    100% { box-shadow: 0 0 15px rgba(208, 2, 27, 0.4); border-color: #d0021b; }
+/* Define the animation for the RED flash effect on the entire card background */
+@keyframes flashBackgroundRed {
+    0% { background-color: #1a1a1a; } /* Original background */
+    25% { background-color: #d0021b; } /* Full red flash */
+    100% { background-color: #1a1a1a; } /* Return to original */
 }
 
-@keyframes flashBorderGreen {
-    0% { box-shadow: 0 0 15px rgba(166, 255, 0, 0.4), inset 0 0 0 0 rgba(166, 255, 0, 0.2); border-color: #a6ff00; }
-    25% { box-shadow: 0 0 25px #a6ff00, inset 0 0 10px #a6ff00; border-color: #7ed321; }
-    100% { box-shadow: 0 0 15px rgba(166, 255, 0, 0.4); border-color: #a6ff00; }
+/* Define the animation for the GREEN flash effect on the entire card background */
+@keyframes flashBackgroundGreen {
+    0% { background-color: #1a1a1a; } /* Original background */
+    25% { background-color: #a6ff00; } /* Full green flash */
+    100% { background-color: #1a1a1a; } /* Return to original */
 }
 
 /* Class to be applied temporarily on successful action */
 .liq-position-card.flash-success {
-    animation: flashBorderGreen 0.5s ease-out;
+    animation: flashBackgroundGreen 0.7s ease-out forwards; /* 'forwards' keeps final state */
 }
 
 /* Class to be applied temporarily on failed action */
 .liq-position-card.flash-fail {
-    animation: flashBorderRed 0.5s ease-out;
+    animation: flashBackgroundRed 0.7s ease-out forwards; /* 'forwards' keeps final state */
 }
