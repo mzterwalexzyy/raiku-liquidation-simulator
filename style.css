@@ -363,12 +363,15 @@ button, input {
 }
 
 .liq-position-card.at-risk {
-    border: 2px solid #4a90e2; /* Blue border for scheduling */
-    box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+    border: 2px solid #d0021b; /* Use red border for at-risk positions based on screenshot */
+    box-shadow: 0 0 15px rgba(208, 2, 27, 0.4);
 }
 
+/* FIX: Green border for SAFE positions */
 .liq-position-card.safe {
-    opacity: 0.7;
+    border: 2px solid #a6ff00; 
+    box-shadow: 0 0 15px rgba(166, 255, 0, 0.4);
+    opacity: 1; /* Keep safe card opaque/bright */
 }
 
 
@@ -380,10 +383,10 @@ button, input {
     margin-top: 15px;
 }
 
-/* FIX: Ensure single buttons span the full width of the grid area */
-/* This is the key fix for the "Position is Safe" button to cover the entire base */
+/* FIX: Force single button to span the full width by redefining the grid layout when only one child exists */
+/* We target the container when it has exactly one child with the single-action-btn class */
 .action-buttons:has(> .single-action-btn:only-child) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Change to a single column layout */
 }
 
 
@@ -393,7 +396,7 @@ button, input {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s, opacity 0.2s;
+    transition: background-color 0.2s, color 0.2s, opacity 0.2s;
     font-size: 0.9em;
     white-space: normal; 
     line-height: 1.2;
@@ -434,11 +437,10 @@ button, input {
 
 /* Position is Safe (FINAL FIX: Dark Grey Background, Subtle Text, Single Button) */
 .safe-btn {
+    /* Use 'single-action-btn' for all non-actionable, single buttons that need the full width */
     background-color: #313131; 
     color: #bbb; 
     border: 1px solid #2a2a2a;
-    /* This ensures the button uses the single column when it's the only one present */
-    grid-column: 1 / -1; 
 }
 /* FIX: Green hover effect */
 .safe-btn:hover {
@@ -449,7 +451,7 @@ button, input {
 
 
 /* Disabled/Failure States */
-.liq-button:disabled, .aot-button:disabled, .single-action-btn:disabled {
+.liq-button:disabled, .aot-button:disabled, .too-early-btn:disabled, .safe-btn:disabled {
     background-color: #3a3a3a !important;
     color: #777 !important;
     cursor: not-allowed;
