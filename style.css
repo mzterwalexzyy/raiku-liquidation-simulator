@@ -364,8 +364,8 @@ button, input {
 }
 
 .liq-position-card.at-risk {
-    border: 2px solid #d0021b; 
-    box-shadow: 0 0 15px rgba(208, 2, 27, 0.4);
+    border: 2px solid #4a90e2; /* Blue border for AoT/At Risk */
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
 }
 
 .liq-position-card.safe {
@@ -375,35 +375,34 @@ button, input {
 }
 
 
-/* Liquidation Buttons Layout and Color */
-/* --- Liquidation Buttons Layout and Color --- */
-
+/* --- Liquidation Buttons Layout and Color (HEIGHT FIX HERE) --- */
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Default to two columns */
-    gap: 10px;
+    gap: 8px; /* Slightly reduced gap */
     margin-top: 15px;
 }
 
-/* Specific rule for the 'SAFE' card which only contains one button. 
-   We ensure the single button spans both columns. */
+/* Specific rule for the 'SAFE' card to ensure the single button spans both columns. */
 .action-buttons:has(> .safe-btn) {
-     grid-template-columns: 1fr; /* Effectively one column */
+     grid-template-columns: 1fr; 
 }
 
 .liq-button, .aot-button {
-    padding: 10px 5px;
+    /* 💥 FIX: Reduced Vertical Padding & Font Size to prevent wrapping */
+    padding: 8px 3px; 
+    font-size: 0.85em; 
+    
     border: none;
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s, opacity 0.2s;
-    font-size: 0.9em;
     white-space: normal; 
     line-height: 1.2;
 }
 
-/* Standard JIT/Liquidation Button */
+/* Standard JIT/Liquidation Button (Yellow/Orange) */
 .standard-liq-btn {
     background-color: #ffc700; 
     color: #000; 
@@ -412,7 +411,7 @@ button, input {
     background-color: #ffda5c;
 }
 
-/* Raiku JIT/Liquidation Button */
+/* Raiku JIT/Liquidation Button (Neon Green) */
 .raiku-liq-btn {
     background-color: #a6ff00; 
     color: #000; 
@@ -421,9 +420,9 @@ button, input {
     background-color: #7ed321;
 }
 
-/* Raiku AoT Button */
+/* Raiku AoT Button (Blue - for Scheduling) */
 .raiku-aot-btn {
-    background-color: #4a90e2; /* Using a clean blue for scheduling */
+    background-color: #4a90e2; 
     color: white; 
 }
 .raiku-aot-btn:hover:not(:disabled) {
@@ -434,12 +433,10 @@ button, input {
 .safe-btn {
     /* Force this element to span all columns */
     grid-column: 1 / -1; 
-    
     background-color: #313131; 
     color: #bbb; 
     border: 1px solid #2a2a2a;
 }
-/* No special hover for disabled safe button */
 .safe-btn:hover {
     cursor: default;
     background-color: #313131; 
@@ -454,12 +451,6 @@ button, input {
     cursor: not-allowed;
     opacity: 0.8;
 }
-
-/* Specific style for the 'Too Early for Standard JIT' button 
-   when it appears next to the 'Schedule Raiku AoT' button in the 'At Risk' section.
-   This button is rendered as a 'liq-button standard-liq-btn' but is disabled 
-   in the HTML, so the default disabled styling will apply. 
-   We ensure it does NOT span the entire grid. */
 
 /* Feedback Notification */
 .feedback-notification {
@@ -672,8 +663,8 @@ button, input {
 
     /* Adjust button font size in cards */
     .liq-button, .aot-button {
-        font-size: 0.85em; 
-        padding: 8px 3px;
+        font-size: 0.8em; 
+        padding: 6px 2px; /* Further reduction for mobile */
     }
 }
 
