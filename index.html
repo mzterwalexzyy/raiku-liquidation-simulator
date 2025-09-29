@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raiku Guaranteed Liquidation Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to the Raiku Liquidation Simulation!</h2>
+            <p>You're about to test the core power of Raiku: <strong>Guaranteed Execution</strong> in a highly competitive, time-sensitive liquidation race.</p>
+            
+            <div class="modal-points">
+                <p><strong>Scenario:</strong> A DeFi loan is under-collateralized and must be liquidated within a short window to capture profit.</p>
+                <p><strong>🔴 Standard Liquidator (JIT):</strong> Loses the liquidation race due to network congestion and competing bots.</p>
+                <p><strong>🟢 Raiku Guaranteed Liquidator (AoT):</strong> Uses <strong>Ahead-of-Time (AoT) Scheduling</strong> to guarantee execution.</p>
+            </div>
+            
+            <p style="color: #f5a623; font-weight: bold;">
+                ⚠️ Note: This is a simulation. No real wallet connection or funds are required.
+            </p>
+            <button id="closeModalBtn" class="modal-close-btn">Start Simulation</button>
+        </div>
+    </div>
+
+    <nav id="main-nav">
+        <div class="nav-content-wrapper"> 
+            <div class="nav-brand">
+                <img src="raiku_logo.jpg" alt="Raiku Logo" class="logo"> 
+            </div>
+            <div class="nav-links">
+                <a href="#liqpool" class="nav-link active" data-view="liqpool">Live Liquidation Pool</a> 
+                <a href="#dashboard" class="nav-link" data-view="dashboard">Dashboard (Sim Race)</a>
+                <a href="#about-footer" class="nav-link" data-view="about">About</a>
+            </div>
+            
+            <div class="wallet-section-nav">
+                <p class="safety-note-nav">⚠️ Simulated Connection Only</p>
+                <button id="connectWalletBtn">Connect Wallet</button>
+            </div>
+        </div> 
+    </nav>
+
+    <div id="app-container" class="centered-container">
+        
+        <div id="liqpool" class="app-view active"> 
+            <header class="app-header">
+                <h1 style="color:#a6ff00;">Live Liquidation Pool: Find Your Edge (AoT Scheduling)</h1>
+                <p class="explanation-main">
+                    Use **Standard JIT** for positions already vulnerable ($\le 1.05$), or use **Raiku AoT** to schedule execution for positions that are **at risk** ($1.06$ - $1.20$).
+                </p>
+                <div id="liqPoolSummary" class="summary-box" style="margin-top:20px; font-size:1.1em;">
+                    Connect Wallet to monitor the Live Liquidation Pool.
+                </div>
+            </header>
+            
+            <div id="liq-pool-card-container" class="card-grid">
+                </div>
+            
+        </div> <div id="dashboard" class="app-view"> 
+            <header class="app-header">
+                <h1>Guaranteed Liquidation Simulator</h1>
+                <p class="explanation-main">
+                    See how Raiku uses <strong>Ahead-of-Time (AoT)</strong> scheduling to eliminate competition and guarantee profit in a liquidation race.
+                </p>
+            </header>
+
+            <div id="dashboard-charts" class="results-charts-container">
+                </div>
+            
+            <div class="controls-section centered-controls">
+                <div class="wallet-status-section">
+                    <p id="walletStatus" class="status-indicator">Status: Disconnected</p>
+                    <p id="walletAddress"></p>
+                </div>
+                
+                <div class="simulation-inputs">
+                    <h2>The Liquidation Race Challenge</h2>
+                    <label for="liquidationQuantityInput">Liquidation Attempts (1 - 100):</label>
+                    <input type="number" id="liquidationQuantityInput" min="1" max="100" value="10" placeholder="Enter attempts">
+                    
+                    <button id="runSimulationBtn" disabled>Run <span id="liquidationQuantityDisplay">10</span> Attempts</button>
+                </div>
+            </div>
+
+            <div id="final-summary" class="summary-box"></div>
+            <div class="results-grid centered-results">
+                <div class="bot-card standard-bot">
+                    <h3>Standard RPC Liquidator 🔴</h3>
+                    <p class="description">Loses the race to congestion and drops.</p>
+                    <div class="stat-box"> <span class="label">Attempts Fired:</span> <span class="value" id="standardSubmitted">0</span> </div>
+                    <div class="stat-box success"> <span class="label">SUCCESSFUL:</span> <span class="value" id="standardSuccessful">0</span> </div>
+                    <div class="stat-box failed"> <span class="label">FAILED:</span> <span class="value" id="standardFailed">0</span> </div>
+                    <div class="stat-box loss"> <span class="label">Profit Captured:</span> <span class="value" id="standardProfit">$0.00</span> </div>
+                    <p id="standardMessage" class="message"></p>
+                </div>
+
+                <div class="bot-card raiku-bot">
+                    <h3>Raiku Guaranteed Liquidator 🟢</h3>
+                    <p class="description">Guarantees execution via AoT Scheduling.</p>
+                    <div class="stat-box"> <span class="label">Attempts Fired:</span> <span class="value" id="raikuSubmitted">0</span> </div>
+                    <div class="stat-box success"> <span class="label">SUCCESSFUL:</span> <span class="value" id="raikuSuccessful">0</span> </div>
+                    <div class="stat-box failed"> <span class="label">FAILED:</span> <span class="value" id="raikuFailed">0</span> </div>
+                    <div class="stat-box profit"> <span class="label">Profit Captured:</span> <span class="value" id="raikuProfit">$0.00</span> </div>
+                    <p id="raikuMessage" class="message"></p>
+                </div>
+            </div>
+        </div> </div> <footer id="about-footer">
+        <div class="footer-links">
+            <p>Built for the Raiku Community | Feedback: <a href="https://x.com/0x_cyph" target="_blank">@0x_cyph</a></p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
