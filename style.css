@@ -327,7 +327,7 @@ button, input {
     border-bottom: 1px solid #2a2a2a;
     padding-bottom: 10px;
     margin-bottom: 15px;
-    text-align: center; /* <<< THE FIX IS HERE */
+    text-align: center; 
 }
 
 .card-stats p {
@@ -365,7 +365,7 @@ button, input {
 }
 
 .liq-position-card.at-risk {
-    border: 2px solid #d0021b; /* Use red border for at-risk positions based on screenshot */
+    border: 2px solid #d0021b; 
     box-shadow: 0 0 15px rgba(208, 2, 27, 0.4);
 }
 
@@ -373,11 +373,11 @@ button, input {
 .liq-position-card.safe {
     border: 2px solid #a6ff00; 
     box-shadow: 0 0 15px rgba(166, 255, 0, 0.4);
-    opacity: 1; /* Keep safe card opaque/bright */
+    opacity: 1;
 }
 
 
-/* Liquidation Buttons Layout and Color (FINAL FIXES) */
+/* Liquidation Buttons Layout and Color */
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -385,9 +385,9 @@ button, input {
     margin-top: 15px;
 }
 
-/* FIX: Force single button to span the full width by redefining the grid layout when only one child exists */
+/* Ensure two columns are defined for the action buttons */
 .action-buttons:has(> .single-action-btn:only-child) {
-    grid-template-columns: 1fr; /* Change to a single column layout */
+    grid-template-columns: 1fr; /* This helps collapse the gap for single buttons */
 }
 
 
@@ -436,14 +436,16 @@ button, input {
     color: white; 
 }
 
-/* Position is Safe (FINAL FIX: Dark Grey Background, Subtle Text, Single Button) */
+/* Position is Safe (FINAL, ROBUST FIX: Full Width and Green Hover) */
 .safe-btn {
-    /* Use 'single-action-btn' for all non-actionable, single buttons that need the full width */
+    /* **THIS IS THE CRITICAL FIX:** Force this element to span all columns */
+    grid-column: 1 / -1; 
+    
     background-color: #313131; 
     color: #bbb; 
     border: 1px solid #2a2a2a;
 }
-/* FIX: Green hover effect */
+/* Green hover effect */
 .safe-btn:hover {
     background-color: #a6ff00; /* Raiku Green */
     color: #000; /* Black text for contrast */
