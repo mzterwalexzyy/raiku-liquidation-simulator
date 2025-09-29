@@ -374,13 +374,19 @@ button, input {
 }
 
 
-/* Liquidation Buttons Layout (FIXED) */
+/* Liquidation Buttons Layout and Color (FIXED to be less flashy) */
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-top: 15px; /* Restored margin */
+    margin-top: 15px;
 }
+
+/* Style for single button to span full width (Position is Safe) */
+.action-buttons:has(> .safe-btn:only-child) {
+    grid-template-columns: 1fr;
+}
+
 
 .liq-button, .aot-button {
     padding: 10px 5px;
@@ -390,35 +396,49 @@ button, input {
     cursor: pointer;
     transition: background-color 0.2s, opacity 0.2s;
     font-size: 0.9em;
-    /* Ensure text wraps cleanly */
     white-space: normal; 
     line-height: 1.2;
 }
 
+/* Standard JIT/Liquidation Button (Dark background, Red text) */
 .standard-liq-btn {
-    background-color: #d0021b;
-    color: white;
+    background-color: #1a1a1a; 
+    color: #d0021b;
+    border: 1px solid #3a3a3a;
 }
 .standard-liq-btn:hover:not(:disabled) {
-    background-color: #ff3344;
+    background-color: #2a2a2a;
 }
 
+/* Raiku JIT/Liquidation Button (Dark background, Neon Green text) */
 .raiku-liq-btn {
-    background-color: #a6ff00;
-    color: #0a0a0a;
+    background-color: #1a1a1a;
+    color: #a6ff00;
+    border: 1px solid #3a3a3a;
 }
 .raiku-liq-btn:hover:not(:disabled) {
-    background-color: #7ed321;
+    background-color: #2a2a2a;
 }
 
+/* Raiku AoT Button (Dark background, Blue text) */
 .aot-button {
-    background-color: #4a90e2; /* Blue for scheduling */
-    color: white;
+    background-color: #1a1a1a; 
+    color: #4a90e2;
+    border: 1px solid #3a3a3a;
+    grid-column: span 2; /* AoT button always spans 2 columns with the disabled standard button */
 }
 .aot-button:hover:not(:disabled) {
-    background-color: #6aabff;
+    background-color: #2a2a2a;
 }
 
+/* Position is Safe Button (Covers bottom, subtle gray) */
+.safe-btn {
+    background-color: #1a1a1a;
+    color: #999;
+    border: 1px solid #2a2a2a;
+}
+
+/* Disabled/Failure States */
 .liq-button:disabled, .aot-button:disabled {
     background-color: #3a3a3a !important;
     color: #777 !important;
@@ -635,14 +655,14 @@ button, input {
         gap: 15px;
     }
 
-    /* Adjust button font size in cards (FIXED) */
+    /* Adjust button font size in cards */
     .liq-button, .aot-button {
         font-size: 0.85em; 
         padding: 8px 3px;
     }
 }
 
-/* Mobile-Specific Adjustment for Modal (FIXED) */
+/* Mobile-Specific Adjustment for Modal */
 @media (max-width: 600px) {
     .modal-content {
         width: 90%; 
