@@ -380,7 +380,8 @@ button, input {
     margin-top: 15px;
 }
 
-/* FIX: Ensure single buttons span the full width */
+/* FIX: Ensure single buttons span the full width of the grid area */
+/* This is the key fix for the "Position is Safe" button to cover the entire base */
 .action-buttons:has(> .single-action-btn:only-child) {
     grid-template-columns: 1fr;
 }
@@ -418,8 +419,8 @@ button, input {
 
 /* Raiku AoT Button (DEEP OLIVE/GREEN BACKGROUND - Matches "Schedule Raiku AoT") */
 .aot-button {
-    background-color: #4a6c2f; /* Deep Olive/Green from screenshot */
-    color: white; /* White text for contrast */
+    background-color: #4a6c2f; 
+    color: white; 
 }
 .aot-button:hover:not(:disabled) {
     background-color: #5d873d;
@@ -427,18 +428,22 @@ button, input {
 
 /* Too Early for Standard JIT (Darker Yellow/Orange Background) */
 .too-early-btn {
-    background-color: #9d7d00; /* Darker Yellow/Orange from screenshot */
+    background-color: #9d7d00; 
     color: white; 
 }
 
 /* Position is Safe (FINAL FIX: Dark Grey Background, Subtle Text, Single Button) */
 .safe-btn {
-    background-color: #313131; /* Dark Grey background from screenshot */
-    color: #bbb; /* Light grey text */
-    border: 1px solid #2a2a2a;
-}
-.safe-btn:hover {
     background-color: #313131; 
+    color: #bbb; 
+    border: 1px solid #2a2a2a;
+    /* This ensures the button uses the single column when it's the only one present */
+    grid-column: 1 / -1; 
+}
+/* FIX: Green hover effect */
+.safe-btn:hover {
+    background-color: #a6ff00; /* Raiku Green */
+    color: #000; /* Black text for contrast */
     cursor: default;
 }
 
