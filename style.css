@@ -372,7 +372,7 @@ button, input {
 }
 
 
-/* Liquidation Buttons Layout and Color (FINAL RESTORATION) */
+/* Liquidation Buttons Layout and Color (FINAL FIXES) */
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -381,7 +381,6 @@ button, input {
 }
 
 /* FIX: Ensure single buttons span the full width */
-/* This targets the parent if it has one child with the class .single-action-btn */
 .action-buttons:has(> .single-action-btn:only-child) {
     grid-template-columns: 1fr;
 }
@@ -399,41 +398,47 @@ button, input {
     line-height: 1.2;
 }
 
-/* Standard JIT/Liquidation Button (RESTORED: Yellow/Orange Background) */
+/* Standard JIT/Liquidation Button (Yellow/Orange Background) */
 .standard-liq-btn {
-    background-color: #ffc700; /* Yellow/Orange background from screenshot */
-    color: #000; /* Black text */
+    background-color: #ffc700; 
+    color: #000; 
 }
 .standard-liq-btn:hover:not(:disabled) {
     background-color: #ffda5c;
 }
 
-/* Raiku JIT/Liquidation Button (RESTORED: Neon Green Background) */
+/* Raiku JIT/Liquidation Button (Neon Green Background) */
 .raiku-liq-btn {
-    background-color: #a6ff00; /* Neon Green background from screenshot */
-    color: #000; /* Black text */
+    background-color: #a6ff00; 
+    color: #000; 
 }
 .raiku-liq-btn:hover:not(:disabled) {
     background-color: #7ed321;
 }
 
-/* Raiku AoT Button (RESTORED: Blue Background - Used for scheduling button) */
+/* Raiku AoT Button (DEEP OLIVE/GREEN BACKGROUND - Matches "Schedule Raiku AoT") */
 .aot-button {
-    background-color: #4a90e2; 
-    color: white;
+    background-color: #4a6c2f; /* Deep Olive/Green from screenshot */
+    color: white; /* White text for contrast */
 }
 .aot-button:hover:not(:disabled) {
-    background-color: #6aabff;
+    background-color: #5d873d;
 }
 
-/* Single Action Buttons (e.g., Too Early/Position is Safe) - Dark, full-width appearance */
-.single-action-btn {
-    background-color: #1a1a1a; /* Dark background to cover the full bottom area */
-    color: #bbb; /* Subtle text color */
-    border: 1px solid #3a3a3a;
+/* Too Early for Standard JIT (Darker Yellow/Orange Background) */
+.too-early-btn {
+    background-color: #9d7d00; /* Darker Yellow/Orange from screenshot */
+    color: white; 
 }
-.single-action-btn:hover {
-    background-color: #1a1a1a; 
+
+/* Position is Safe (FINAL FIX: Dark Grey Background, Subtle Text, Single Button) */
+.safe-btn {
+    background-color: #313131; /* Dark Grey background from screenshot */
+    color: #bbb; /* Light grey text */
+    border: 1px solid #2a2a2a;
+}
+.safe-btn:hover {
+    background-color: #313131; 
     cursor: default;
 }
 
@@ -451,7 +456,7 @@ button, input {
     text-align: center;
     margin-top: 10px;
     font-size: 0.9em;
-    min-height: 18px; /* Maintain vertical space */
+    min-height: 18px; 
 }
 
 .success-feedback {
