@@ -68,11 +68,41 @@ button, input {
     display: flex;
     align-items: center;
     gap: 10px;
+    /* Default desktop spacing */
+    margin-left: 15px; 
 }
 
 .safety-note-nav {
     color: #f5a623;
     font-size: 0.8em;
+    /* Default desktop visibility */
+    display: block; 
+}
+
+/* --- Connect Wallet Button Styling (FIXED) --- */
+#connectWalletBtn {
+    background-color: #4a90e2; /* Blue color for CONNECT */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+}
+
+#connectWalletBtn:hover {
+    background-color: #6aabff;
+}
+
+/* Disconnect Button (Red) - Applied via JS classList.add('disconnect-btn') */
+#connectWalletBtn.disconnect-btn {
+    background-color: #d0021b; /* Red color for DISCONNECT */
+}
+
+#connectWalletBtn.disconnect-btn:hover {
+    background-color: #ff3344;
 }
 
 /* --- App Layout --- */
@@ -268,7 +298,9 @@ button, input {
     min-height: 20px;
 }
 
-/* --- Live Liquidation Pool Cards --- */
+/* --- Live Liquidation Pool Cards (FIXED LAYOUT) --- */
+
+/* Card Grid for the positions */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -342,12 +374,12 @@ button, input {
 }
 
 
-/* Liquidation Buttons */
+/* Liquidation Buttons Layout (FIXED) */
 .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 15px; /* Restored margin */
 }
 
 .liq-button, .aot-button {
@@ -358,6 +390,9 @@ button, input {
     cursor: pointer;
     transition: background-color 0.2s, opacity 0.2s;
     font-size: 0.9em;
+    /* Ensure text wraps cleanly */
+    white-space: normal; 
+    line-height: 1.2;
 }
 
 .standard-liq-btn {
@@ -427,7 +462,7 @@ button, input {
     text-decoration: none;
 }
 
-/* --- Modal Styles (Welcome Screen) --- */
+/* --- Modal Styles (Welcome Screen - FIXED) --- */
 .modal {
     display: none;
     position: fixed;
@@ -586,7 +621,6 @@ button, input {
     /* 3. Adjust the wallet section for space */
     .wallet-section-nav {
         margin-left: 0;
-        /* Make wallet button fit better */
     }
     .safety-note-nav {
         display: none; /* Hide safety note to save space */
@@ -601,13 +635,14 @@ button, input {
         gap: 15px;
     }
 
-    /* Adjust button font size in cards */
+    /* Adjust button font size in cards (FIXED) */
     .liq-button, .aot-button {
-        font-size: 0.8em;
+        font-size: 0.85em; 
+        padding: 8px 3px;
     }
 }
 
-/* Mobile-Specific Adjustment for Modal (for smaller screens) */
+/* Mobile-Specific Adjustment for Modal (FIXED) */
 @media (max-width: 600px) {
     .modal-content {
         width: 90%; 
